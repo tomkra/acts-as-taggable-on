@@ -20,7 +20,7 @@ module ActsAsTaggableOn
     ### SCOPES:
     scope :most_used, ->(limit = 20) { order('taggings_count desc').limit(limit) }
     scope :least_used, ->(limit = 20) { order('taggings_count asc').limit(limit) }
-    scope :last_created, ->(limit = 20) { order('created_at desc').limit(limit) }
+    scope :last_added, ->(limit = 20) { order('id desc').limit(limit) }
 
     def self.named(name)
       if ActsAsTaggableOn.strict_case_match
